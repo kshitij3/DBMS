@@ -1,12 +1,12 @@
 create table BRANCH(
 branch_name varchar(30),
 branch_city varchar(30),
-assets float);
+assets REAL);
 
 create table ACCOUNTS(
 accno int,
 branch_name varchar(30),
-balance float,
+balance REAL,
 primary key(accno),
 foreign key(branch_name)references branch(branch_name));
 
@@ -18,7 +18,7 @@ customer_city varchar(30));
 create table LOAN(
 loan_number int,
 branch_name varchar(30),
-amount float,
+amount REAL,
 primary key(loan_number),
 foreign key(branch_name)references branch(branch_name));
 
