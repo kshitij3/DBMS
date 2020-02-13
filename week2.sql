@@ -25,5 +25,5 @@ foreign key(branch_name)references branch(branch_name));
 create table BORROWER(
 customer_name varchar(30),
 loan_number int,
-foriegn key(customer_name)references depositor(customer_name),
+foreign key(customer_name)references depositor(customer_name),
 foreign key(loan_number)references loan(loan_number));
