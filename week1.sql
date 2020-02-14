@@ -106,6 +106,14 @@ set damage_amount=25000
 where reg_num ='KA053408'
 and
 report_num=12;
+ select * from person;
+insert into accident
+values(18,'10/10/10','MG ROAD');
+select * from accident;
+select count(distinct driver_id) cnt
+from participated, accident
+where participated.report_num=accident.report_num 
+and accident_date like '%2008%';                                          
 
 
 
