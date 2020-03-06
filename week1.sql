@@ -113,7 +113,14 @@ select * from accident;
 select count(distinct driver_id) cnt
 from participated, accident
 where participated.report_num=accident.report_num 
-and accident_date like '%2008%';                                          
+and accident_date like '%2008%';    
+
+       Nested query
+ select person.name
+from person,participated
+where person.driver_id=participated.driver_id  and damage_amount>
+(select avg(damage_amount) from participated);
+                                           
 
 
 
