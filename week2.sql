@@ -107,3 +107,10 @@ select * from accounts;
 select * from bank_customer;
 select * from depositor;
 select * from loan;
+                                          
+ //Nested query
+ select customer_name
+from bank_customer
+where (select count(C.*) from Depositor C,Accounts,Branch
+         where C.accno=Accounts.accno and Accounts.branch_name=Branch.brach_name 
+         group by branch.branch_name)>2;
