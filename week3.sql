@@ -67,5 +67,9 @@ where supplier.sid=catalog.sid and parts.pid=catalog.pid and parts.color in('red
 select s1.sid,s2.sid,p1.pid from supplier s1,supplier s2,catalog c1,catalog c2,parts p1
 where s1.sid=c1.sid and s2.sid=c2.sid and p1.pid=c1.pid and p1.pid=c2.pid and c1.cost>c2.cost; 
 
+//Nested query
 
-
+select S.sname, P.pname from supplier S,Parts P,Catalog C
+where S.sid=C.sid and P.pid=C.pid and C.cost =(select max(cost) from catalog 
+                                                   where P.pid=pid
+                                                  );
